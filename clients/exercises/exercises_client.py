@@ -12,7 +12,7 @@ class Exercise(TypedDict):
     """
     id: str
     title: str
-    courseId: Course
+    courseId: str
     maxScore: int
     minScore: int
     orderIndex: int
@@ -23,7 +23,7 @@ class GetExercisesQueryDict(TypedDict):
     """
         Описание структуры запроса на получение списка заданий.
     """
-    courseId: Course
+    courseId: str
 
 class GetExerciseResponseDict(TypedDict):
     """
@@ -42,7 +42,7 @@ class CreateExerciseRequestDict(TypedDict):
         Описание структуры запроса на создание задания.
     """
     title: str
-    courseId: Course
+    courseId: str
     maxScore: int
     minScore: int
     orderIndex: int
@@ -76,7 +76,7 @@ class ExercisesClient(APIClient):
     """
         Клиент для работы с /api/v1/exercises
     """
-    def get_exercises_api(self,query = GetExercisesQueryDict) -> Response:
+    def get_exercises_api(self,query : GetExercisesQueryDict) -> Response:
         """
         Метод получения списка заданий.
 
